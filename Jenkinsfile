@@ -22,14 +22,16 @@ pipeline{
         //         git branch:GITHUB_BRANCH, url: GITHUB_REPO, credentialsId: 'kunalumrane'
         //     }
         // }
-          stage("build & SonarQube analysis") {
+        stage("build & SonarQube analysis") {
             steps {
-              withSonarQubeEnv(credentialsId: 'Sonar Token') {
-                sh 'mvn clean package sonar:sonar'
+                script{
+                    withSonarQubeEnv(credentialsId: 'Sonar Token') {
+                    sh 'mvn clean package sonar:sonar'
+                }
               }
             }
           }
-          stage("Quality Gate") {
+        stage("Quality Gate") {
             steps {
               timeout(time: 1, unit: 'HOURS') {
                 waitForQualityGate abortPipeline: true
