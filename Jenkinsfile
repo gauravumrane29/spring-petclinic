@@ -23,7 +23,6 @@ pipeline{
         //     }
         // }
           stage("build & SonarQube analysis") {
-            agent docker
             steps {
               withSonarQubeEnv(credentialsId: 'Sonar Token') {
                 sh 'mvn clean package sonar:sonar'
