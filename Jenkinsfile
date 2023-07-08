@@ -19,7 +19,7 @@ pipeline{
         }
         stage('git checkout'){
             steps{
-                git branch:GITHUB_BRANCH, url: GITHUB_REPO,
+                git branch:GITHUB_BRANCH, url: GITHUB_REPO, credentialsId: 'kunalumrane'
             }
         }
         stage('Building project'){
