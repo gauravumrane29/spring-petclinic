@@ -25,7 +25,13 @@ pipeline{
                 script{
                     FAILED_STAGE=env.STAGE_NAME
                 }
-                git branch:GITHUB_BRANCH, url: GITHUB_REPO, credentialsId: 'kunalumrane'
+                git branch:GITHUB_BRANCH, url: GITHUB_REPO,
+            }
+        }
+        stage('Building project'){
+            steps{
+                sh 'mvn clean package'
+                sh '$?'
             }
         }
         stage('Email Notification'){
