@@ -46,6 +46,7 @@ pipeline{
                     recipientProviders: [[$class: 'DevelopersRecipientProvider']]
                 )
             }
+        }
     //     stage('Email Notification'){
     //     steps{
     //         script{
