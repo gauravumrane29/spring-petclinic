@@ -1,7 +1,7 @@
 def GITHUB_REPO = "https://github.com/gauravumrane29/spring-petclinic.git" 
 def GITHUB_BRANCH = "main"
 def SUBJECT = "JENKINS NOTIFICATION"
-def REPLY_EMAIL = "gaurav.umrane@gmail.com"
+def REPLY_EMAIL = "kunalumrane@gmail.com"
 
 pipeline{
     agent any
