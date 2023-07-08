@@ -1,15 +1,17 @@
 pipeline{
     agent any
+    parameters{
+
+    }
     stages{
         stage('git checkout'){
             steps{
+                script{
+                    FAILED_STAGE=env.STAGE_NAME
+                }
                 deleteDir()
-                checkout([$class: 'GitSCM',
-                branches: [[name: 'origin/main']],
-                extensions: [[$class: 'WipeWorkspace']],
-                userRemoteConfigs: [[url: 'git@github.com:gauravumrane29/spring-petclinic.git']]
-                ])
+                git branch: main, url: 'https://github.com/gauravumrane29/spring-petclinic.git', credentialsId: 'GithubToken'
             }
         }
+        }
     }
-}
