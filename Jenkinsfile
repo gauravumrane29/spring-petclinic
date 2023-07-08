@@ -35,6 +35,7 @@ pipeline{
                 emailext attachLog: true,
                 body: "Successfull\n\nBuild URL: ${BUILD_URL} \n\n Build: ${BUILD_NUMBER} Build_ID:${BUILD_ID}" ,
                 to: "${REPLY_EMAIL}",
+                from: "Jenkins",
                 subject: "${SUBJECT} - Build Sucessfull."
             }
         }
