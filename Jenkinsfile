@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    parameters{
-
-    }
     stages{
         stage('git checkout'){
             steps{
