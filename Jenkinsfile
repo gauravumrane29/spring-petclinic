@@ -34,8 +34,7 @@ pipeline{
                 FAILED_STAGE=env.STAGE_NAME
                 emailext attachLog: true,
                 body: "Successfull\n\nBuild URL: ${BUILD_URL} \n\n Build: ${BUILD_NUMBER} Build_ID:${BUILD_ID}" ,
-                to: "$",
-                from: "${REPLY_EMAIL}",
+                to: "${REPLY_EMAIL}",
                 subject: "${SUBJECT} - Build Sucessfull."
             }
         }
